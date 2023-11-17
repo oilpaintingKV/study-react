@@ -1,3 +1,5 @@
+/* eslint-disable */ // warning bye~
+
 import './App.css';
 import { useState } from 'react';
 
@@ -8,13 +10,36 @@ function App() {
     'Crime City 3 review',
   ]);
 
+  let [like, setLike] = useState(0);
+
   return (
     <div className='App'>
       <div className='black-nav'>
         <h1 style={{ fontSize: '20px', color: 'gray' }}>ReactBlog</h1>
       </div>
+      <button
+        onClick={() => {
+          setTitle([
+            'Crime City 1 review',
+            'Recommend a good restaurant',
+            'Crime City 3 review',
+          ]);
+        }}
+      >
+        magic button
+      </button>
       <div className='list'>
-        <h2 className='tit'>{title[0]}</h2>
+        <h2 className='tit'>
+          {title[0]}
+          <span
+            onClick={() => {
+              setLike(like + 1);
+            }}
+          >
+            ❤️
+          </span>
+          {like}
+        </h2>
         <span className='date'>11/17</span>
       </div>
       <div className='list'>
