@@ -26,6 +26,22 @@ function App() {
       >
         magic button
       </button>
+      <button
+        onClick={() => {
+          let copy = [...title];
+          copy = copy.sort(function (a, b) {
+            const upperCaseA = a.toUpperCase();
+            const upperCaseB = b.toUpperCase();
+
+            if (upperCaseA > upperCaseB) return 1;
+            if (upperCaseA < upperCaseB) return -1;
+            if (upperCaseA === upperCaseB) return 0;
+          });
+          setTitle(copy);
+        }}
+      >
+        order button
+      </button>
       <div className='list'>
         <h2 className='tit'>
           {title[0]}
