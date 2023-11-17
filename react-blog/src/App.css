@@ -1,7 +1,18 @@
+/* navigation */
 .black-nav {
   display: flex;
   width: 100%;
   padding: 5px 20px;
   background: #000;
   color: white;
+}
+
+/* content */
+.list {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  box-sizing: border-box;
+}
+.tit {
+  font-size: 16px;
 }
