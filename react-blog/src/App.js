@@ -19,11 +19,9 @@ function App() {
       </div>
       <button
         onClick={() => {
-          setTitle([
-            'Crime City 1 review',
-            'Recommend a good restaurant',
-            'Crime City 3 review',
-          ]);
+          let copy = [...title];
+          copy[0] = 'Crime City 1 review';
+          setTitle(copy);
         }}
       >
         magic button
