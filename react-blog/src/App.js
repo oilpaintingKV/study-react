@@ -11,6 +11,7 @@ function App() {
   ]);
 
   let [like, setLike] = useState(0);
+  let [modal, setModal] = useState(false);
 
   return (
     <div className='App'>
@@ -61,9 +62,28 @@ function App() {
         <span className='date'>11/17</span>
       </div>
       <div className='list'>
-        <h2 className='tit'>{title[2]}</h2>
+        <h2
+          className='tit'
+          onClick={() => {
+            setModal(!modal);
+          }}
+        >
+          {title[2]}
+        </h2>
         <span className='date'>11/17</span>
       </div>
+
+      {modal == true ? <Modal /> : null}
+    </div>
+  );
+}
+
+function Modal() {
+  return (
+    <div className='modal'>
+      <h4>title</h4>
+      <p>date</p>
+      <p>content</p>
     </div>
   );
 }
