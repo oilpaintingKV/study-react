@@ -1,89 +1,105 @@
-/* eslint-disable */ // warning bye~
-
 import './App.css';
 import { useState } from 'react';
 
 function App() {
-  let [title, setTitle] = useState([
-    "a recommendation for women's shoes",
-    'Recommend a good restaurant',
-    'Crime City 3 review',
-  ]);
-
-  let [like, setLike] = useState(0);
+  let [title, setTitle] = useState(['IT cloud', 'Bigbang Theory', 'BEEF']);
+  let [like, setLike] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
 
   return (
     <div className='App'>
-      <div className='black-nav'>
-        <h1 style={{ fontSize: '20px', color: 'gray' }}>ReactBlog</h1>
+      {/* S : Navigation */}
+      <div className='nav_black'>
+        <h1>blog</h1>
       </div>
-      <button
-        onClick={() => {
-          let copy = [...title];
-          copy[0] = 'Crime City 1 review';
-          setTitle(copy);
-        }}
-      >
-        magic button
-      </button>
-      <button
-        onClick={() => {
-          let copy = [...title];
-          copy = copy.sort(function (a, b) {
-            const upperCaseA = a.toUpperCase();
-            const upperCaseB = b.toUpperCase();
+      {/* E : Navigation */}
 
-            if (upperCaseA > upperCaseB) return 1;
-            if (upperCaseA < upperCaseB) return -1;
-            if (upperCaseA === upperCaseB) return 0;
-          });
-          setTitle(copy);
-        }}
-      >
-        order button
-      </button>
-      <div className='list'>
-        <h2 className='tit'>
-          {title[0]}
-          <span
-            onClick={() => {
-              setLike(like + 1);
-            }}
-          >
-            ❤️
-          </span>
-          {like}
-        </h2>
-        <span className='date'>11/17</span>
-      </div>
-      <div className='list'>
-        <h2 className='tit'>{title[1]}</h2>
-        <span className='date'>11/17</span>
-      </div>
-      <div className='list'>
-        <h2
-          className='tit'
+      {/* S : Top Button */}
+      <div className='btn_box'>
+        <button
+          className='btn btn_change'
           onClick={() => {
-            setModal(!modal);
+            let copy = [...title];
+            copy[0] = 'Black Mirror';
+
+            setTitle(copy);
           }}
         >
-          {title[2]}
-        </h2>
-        <span className='date'>11/17</span>
-      </div>
+          title change
+        </button>
+        <button
+          className='btn btn_sort'
+          onClick={() => {
+            let copy = [...title];
+            copy.sort();
 
-      {modal == true ? <Modal /> : null}
+            setTitle(copy);
+          }}
+        >
+          title sort
+        </button>
+      </div>
+      {/* E : Top Button */}
+
+      {/* S : Blog List */}
+      <ul className='blog_list'>
+        {title.map(function (a, i) {
+          return (
+            <li className='blog_list_item' key={i}>
+              <a
+                href='#'
+                className='item_link'
+                onClick={() => {
+                  setModal(!modal);
+                }}
+              >
+                <h2 className='blog_title'>
+                  {i + 1}. {a}
+                </h2>
+                <span className='blog_desc'>Posted on 01/22</span>
+              </a>
+              <button
+                className='btn_like'
+                onClick={() => {
+                  let copy = [...like];
+                  copy[i] = copy[i] + 1;
+                  setLike(copy);
+                }}
+              >
+                ❤️ <span className='like_count'>{like[i]}</span>
+              </button>
+            </li>
+          );
+        })}
+      </ul>
+
+      {/* E : Blog List */}
+
+      {/* S : Modal */}
+      {modal == true ? (
+        <Modal color='skyblue' setTitle={setTitle} title={title} />
+      ) : null}
+      {/* E : Modal */}
     </div>
   );
 }
 
-function Modal() {
+function Modal(props) {
   return (
-    <div className='modal'>
-      <h4>title</h4>
-      <p>date</p>
-      <p>content</p>
+    <div className='modal' style={{ background: props.color }}>
+      <h3 className='modal_title'>{props.title[0]}</h3>
+      <span className='modal_date'>date</span>
+      <span className='modal_desc'>content</span>
+      <div className='btn_box'>
+        <button
+          onClick={() => {
+            props.setTitle(['Doctor Who', 'Bigbang Theory', 'BEEF']);
+          }}
+          className='btn btn_title_change'
+        >
+          edit title
+        </button>
+      </div>
     </div>
   );
 }
