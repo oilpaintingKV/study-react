@@ -1,5 +1,136 @@
-.nav {
-  padding: 5px 0;
-  background: #000;
-  color: #fff;
+/* reset code */
+body,
+div,
+dl,
+dt,
+dd,
+ul,
+ol,
+li,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+table,
+th,
+td,
+form,
+fieldset,
+legend,
+textarea,
+input,
+select,
+textarea,
+button,
+article,
+aside,
+dialog,
+footer,
+header,
+section,
+footer,
+nav,
+figure,
+main {
+  margin: 0;
+  padding: 0;
+}
+article,
+aside,
+dialog,
+footer,
+header,
+section,
+footer,
+nav,
+figure,
+main {
+  display: block;
+} /* for ie8 */
+html,
+body {
+  -webkit-text-size-adjust: none;
+  -ms-text-size-adjust: none;
+} /* for mobile */
+body,
+input,
+select,
+textarea,
+button {
+  font-family: '공통 폰트', sans-serif;
+}
+ul,
+ol {
+  list-style: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+input,
+button,
+select {
+  -webkit-appearance: none;
+  appearance: none;
+  border: 0;
+  border-radius: 0;
+  background-color: transparent;
+}
+input::-ms-clear {
+  display: none;
+} /* input내 clear 버튼 제거 : IE10+ */
+img,
+fieldset {
+  border: 0;
+  vertical-align: top;
+}
+em,
+address {
+  font-style: normal;
+}
+.blind,
+caption span,
+legend {
+  overflow: hidden;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  clip: rect(0, 0, 0, 0);
+}
+
+/* blog */
+body {
+  background: #91c0ff;
+  color: #222;
+}
+/* blog > header */
+.header {
+  padding: 15px 10px;
+  background: #fff;
+}
+
+.blog-area {
+  margin-top: 20px;
+  padding: 0 10px;
+}
+.blog-item {
+  padding: 20px;
+  backdrop-filter: blur(0px);
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 10px;
+  box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5),
+    inset -10px -10px 16px 0px rgba(145, 192, 255, 0.6),
+    inset 0px 11px 28px 0px rgb(255, 255, 255);
+}
+.blog-item + .blog-item {
+  margin-top: 10px;
+}
+.blog-item .date {
+  display: block;
+  margin-top: 5px;
 }
