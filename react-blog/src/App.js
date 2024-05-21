@@ -10,17 +10,19 @@ function App() {
   let [like, setLike] = useState(0);
 
   function titleHandler() {
-    setBlogTitle(
-      (blogTitle = [
-        '토트넘 홋스퍼 스타디움 직관 후기',
-        '아스날 에미레이트 스타디움 직관 후기',
-        '울버햄튼 몰리뉴 스타디움 홈구장 직관 후기',
-      ])
-    );
+    let copy = [...blogTitle];
+    copy[0] = '토트넘 홋스퍼 스타디움 직관 후기';
+    setBlogTitle(copy);
   }
 
   function likeHandler() {
     setLike(like + 1);
+  }
+
+  function sortHandler() {
+    let copy = [...blogTitle];
+    copy = copy.sort();
+    setBlogTitle(copy);
   }
 
   return (
@@ -33,6 +35,9 @@ function App() {
         <div className='blog_btn_box'>
           <button className='btn btn_name_change' onClick={titleHandler}>
             change first title
+          </button>
+          <button className='btn btn_name_change' onClick={sortHandler}>
+            sort
           </button>
         </div>
         <ul className='blog_list'>
