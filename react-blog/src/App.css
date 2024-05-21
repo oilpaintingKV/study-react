@@ -113,6 +113,7 @@ body {
   background: #91c0ff;
   color: #222;
 }
+
 /* blog > header */
 .header {
   position: fixed;
@@ -127,15 +128,18 @@ body {
   -webkit-backdrop-filter: blur(6px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.8);
 }
+
+/* blog > blog area */
 .blog_area {
   margin-top: 100px;
   padding: 0 20px;
 }
+
+/* blog area > btn box */
 .blog_btn_box .btn {
   padding: 10px 20px;
   border-radius: 10px;
   background-color: rgba(255, 255, 255, 0.5);
-  border-radius: 10px;
   box-shadow: 35px 35px 68px 0px rgba(145, 192, 255, 0.5),
     inset -10px -10px 16px 0px rgba(145, 192, 255, 0.6),
     inset 0px 11px 28px 0px rgb(255, 255, 255);
@@ -143,6 +147,8 @@ body {
 .blog_btn_box .btn + .btn {
   margin-left: 10px;
 }
+
+/* blog area > list */
 .blog_list {
   margin-top: 20px;
 }
@@ -158,9 +164,11 @@ body {
 .blog_item + .blog_item {
   margin-top: 15px;
 }
-.blog_item .link_blog {
+.blog_item .btn_blog {
   display: block;
+  width: 100%;
   padding: 20px;
+  text-align: left;
 }
 .blog_item .title {
   font-size: 18px;
@@ -177,4 +185,24 @@ body {
 }
 .blog_item .btn_like .number {
   margin-left: 10px;
+}
+
+/* blog area > content */
+.blog_content {
+  position: relative;
+  margin-top: 30px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #fff;
+}
+.blog_content .title {
+  font-size: 20px;
+}
+.blog_content .date {
+  display: block;
+  margin-top: 15px;
+  font-size: 14px;
+}
+.blog_content .desc {
+  margin-top: 30px;
 }
