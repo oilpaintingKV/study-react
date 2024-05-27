@@ -132,7 +132,7 @@ body {
 /* blog > blog area */
 .blog_area {
   margin-top: 100px;
-  padding: 0 20px;
+  padding: 0 20px 100px;
 }
 
 /* blog area > btn box */

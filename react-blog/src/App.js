@@ -8,6 +8,7 @@ function App() {
     '아스날 에미레이트 스타디움 직관 후기',
   ]);
   let [like, setLike] = useState(0);
+  let [modal, setModal] = useState(false);
 
   function titleHandler() {
     let copy = [...blogTitle];
@@ -23,6 +24,10 @@ function App() {
     let copy = [...blogTitle];
     copy = copy.sort();
     setBlogTitle(copy);
+  }
+
+  function toggleModalHandler() {
+    setModal(!modal);
   }
 
   return (
@@ -42,7 +47,11 @@ function App() {
         </div>
         <ul className='blog_list'>
           <li className='blog_item'>
-            <button type='button' className='btn_blog'>
+            <button
+              type='button'
+              className='btn_blog'
+              onClick={toggleModalHandler}
+            >
               <h2 className='title'>{blogTitle[0]}</h2>
               <span className='date'>5월 20일 발행</span>
             </button>
@@ -73,7 +82,7 @@ function App() {
           </li>
         </ul>
 
-        <Modal></Modal>
+        {modal == true ? <Modal /> : null}
       </div>
     </div>
   );
