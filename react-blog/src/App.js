@@ -7,17 +7,13 @@ function App() {
     '울버햄튼 몰리뉴 스타디움 홈구장 직관 후기',
     '아스날 에미레이트 스타디움 직관 후기',
   ]);
-  let [like, setLike] = useState(0);
+  let [like, setLike] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
 
   function titleHandler() {
     let copy = [...blogTitle];
     copy[0] = '토트넘 홋스퍼 스타디움 직관 후기';
     setBlogTitle(copy);
-  }
-
-  function likeHandler() {
-    setLike(like + 1);
   }
 
   function sortHandler() {
@@ -46,40 +42,31 @@ function App() {
           </button>
         </div>
         <ul className='blog_list'>
-          <li className='blog_item'>
-            <button
-              type='button'
-              className='btn_blog'
-              onClick={toggleModalHandler}
-            >
-              <h2 className='title'>{blogTitle[0]}</h2>
-              <span className='date'>5월 20일 발행</span>
-            </button>
-            <button className='btn_like' onClick={likeHandler}>
-              🖤
-              <span className='number'>{like}</span>
-            </button>
-          </li>
-          <li className='blog_item'>
-            <button type='button' className='btn_blog'>
-              <h2 className='title'>{blogTitle[1]}</h2>
-              <span className='date'>5월 20일 발행</span>
-            </button>
-            <button className='btn_like'>
-              🖤
-              <span className='number'>0</span>
-            </button>
-          </li>
-          <li className='blog_item'>
-            <button type='button' className='btn_blog'>
-              <h2 className='title'>{blogTitle[2]}</h2>
-              <span className='date'>5월 20일 발행</span>
-            </button>
-            <button className='btn btn_like'>
-              🖤
-              <span className='number'>0</span>
-            </button>
-          </li>
+          {blogTitle.map(function (a, i) {
+            return (
+              <li className='blog_item' key={i}>
+                <button
+                  type='button'
+                  className='btn_blog'
+                  onClick={toggleModalHandler}
+                >
+                  <h2 className='title'>{blogTitle[i]}</h2>
+                  <span className='date'>5월 20일 발행</span>
+                </button>
+                <button
+                  className='btn_like'
+                  onClick={() => {
+                    let copy = [...like];
+                    copy[i] += 1;
+                    setLike(copy);
+                  }}
+                >
+                  🖤
+                  <span className='number'>{like[i]}</span>
+                </button>
+              </li>
+            );
+          })}
         </ul>
 
         {modal == true ? <Modal /> : null}
